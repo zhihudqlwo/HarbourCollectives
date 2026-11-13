@@ -30,8 +30,8 @@ The distributed-computing source mirror carries an established development maint
 - [ ] **torch/distributed/_state_dict_utils.py:109** - # TODO: should we use pytree?
 - [ ] **torch/distributed/_state_dict_utils.py:624** - # TODO: currently, we cannot handle strided sharding if the dp dimension is not even. For example,
 - [ ] **torch/distributed/_state_dict_utils.py:732** - # TODO: We should consolidate the code here as some not all modules can depend on
-- [ ] **torch/distributed/_symmetric_memory/__init__.py:2609** - # TODO: other backends' dispatch goes here
-- [ ] **torch/distributed/_symmetric_memory/__init__.py:2629** - # TODO: other backends' dispatch goes here
+- [ ] **torch/distributed/_symmetric_memory/__init__.py:2617** - # TODO: other backends' dispatch goes here
+- [ ] **torch/distributed/_symmetric_memory/__init__.py:2637** - # TODO: other backends' dispatch goes here
 - [ ] **torch/distributed/_tensor/__init__.py:15** - # TODO: _shards_wrapper/_utils here mainly for checkpoint BC, remove them
 - [ ] **torch/distributed/_tools/fake_collectives.py:246** - # TODO(@sanketpurandare) - Confirm size computation
 - [ ] **torch/distributed/_tools/fake_collectives.py:251** - # TODO(@sanketpurandare) - Confirm size computation
@@ -129,7 +129,7 @@ The distributed-computing source mirror carries an established development maint
 - [ ] **torch/distributed/fsdp/_fully_shard/_fsdp_param.py:304** - # TODO: Simplify the following sharded parameter padding logic after
 - [ ] **torch/distributed/fsdp/_fully_shard/_fsdp_param.py:1057** - # TODO: Prefer this DTensor to be read-only and generalize the
 - [ ] **torch/distributed/fsdp/_fully_shard/_fsdp_param.py:1334** - # TODO: need to support tensor subclass
-- [ ] **torch/distributed/fsdp/_fully_shard/_fsdp_param_group.py:859** - # TODO(#181218): open questions on scope.
+- [ ] **torch/distributed/fsdp/_fully_shard/_fsdp_param_group.py:856** - # TODO(#181218): open questions on scope.
 - [ ] **torch/distributed/fsdp/_fully_shard/_fsdp_state.py:621** - # TODO: To support modifying the sharded parameters between forward and
 - [ ] **torch/distributed/fsdp/_init_utils.py:68** - # TODO (awgu): Refactor this later
 - [ ] **torch/distributed/fsdp/_init_utils.py:312** - # TODO: FSDP's contract for buffers is not well-defined. They are
@@ -179,18 +179,18 @@ The distributed-computing source mirror carries an established development maint
 - [ ] **torch/distributed/pipelining/_backward.py:510** - # TODO: handling requires_grad=False dynamically. Can we analyze this during initial
 - [ ] **torch/distributed/pipelining/_schedule_visualizer.py:117** - # TODO: later we can change this at the schedule creation level to not use Nones
 - [ ] **torch/distributed/pipelining/microbatch.py:432** - # TODO: _debug_mask_minibatches
-- [ ] **torch/distributed/pipelining/schedules.py:67** - # TODO(whc) rename to _ActType?
-- [ ] **torch/distributed/pipelining/schedules.py:242** - # TODO make a real 'None action' that prints as empty string and make mypy happy
-- [ ] **torch/distributed/pipelining/schedules.py:2394** - # TODO we can avoid send/recv if the 2 stages are on the same rank.
-- [ ] **torch/distributed/pipelining/schedules.py:2977** - # TODO: assumption that stages only communicate from distances of +1/-1 (no skip connections)
-- [ ] **torch/distributed/pipelining/schedules.py:3082** - # TODO: We are assuming that stage will always receive from stage-1
-- [ ] **torch/distributed/pipelining/schedules.py:3117** - # TODO: We are assuming that stage will always receive from stage+1
-- [ ] **torch/distributed/pipelining/schedules.py:3301** - # TODO what level of validation should we offer for compute+comms schedule?
-- [ ] **torch/distributed/pipelining/schedules.py:3532** - # TODO(whc) it's not actually safe to use _batch_p2p here in the uncommon case the model has skip-connections,
-- [ ] **torch/distributed/pipelining/schedules.py:3985** - # TODO: we don't need to always append, after all 1f1b are finished we can stop appending None
-- [ ] **torch/distributed/pipelining/schedules.py:4235** - # TODO: we don't support input/weight backward split with torch.compile
-- [ ] **torch/distributed/pipelining/schedules.py:4456** - # TODO: we don't support input/weight backward split with torch.compile
-- [ ] **torch/distributed/pipelining/schedules.py:4666** - # TODO: we don't support input/weight backward split with torch.compile
+- [ ] **torch/distributed/pipelining/schedules.py:68** - # TODO(whc) rename to _ActType?
+- [ ] **torch/distributed/pipelining/schedules.py:243** - # TODO make a real 'None action' that prints as empty string and make mypy happy
+- [ ] **torch/distributed/pipelining/schedules.py:2422** - # TODO we can avoid send/recv if the 2 stages are on the same rank.
+- [ ] **torch/distributed/pipelining/schedules.py:3005** - # TODO: assumption that stages only communicate from distances of +1/-1 (no skip connections)
+- [ ] **torch/distributed/pipelining/schedules.py:3110** - # TODO: We are assuming that stage will always receive from stage-1
+- [ ] **torch/distributed/pipelining/schedules.py:3145** - # TODO: We are assuming that stage will always receive from stage+1
+- [ ] **torch/distributed/pipelining/schedules.py:3329** - # TODO what level of validation should we offer for compute+comms schedule?
+- [ ] **torch/distributed/pipelining/schedules.py:3560** - # TODO(whc) it's not actually safe to use _batch_p2p here in the uncommon case the model has skip-connections,
+- [ ] **torch/distributed/pipelining/schedules.py:4013** - # TODO: we don't need to always append, after all 1f1b are finished we can stop appending None
+- [ ] **torch/distributed/pipelining/schedules.py:4263** - # TODO: we don't support input/weight backward split with torch.compile
+- [ ] **torch/distributed/pipelining/schedules.py:4484** - # TODO: we don't support input/weight backward split with torch.compile
+- [ ] **torch/distributed/pipelining/schedules.py:4694** - # TODO: we don't support input/weight backward split with torch.compile
 - [ ] **torch/distributed/pipelining/stage.py:453** - # TODO: this is needed for backward_maybe_with_nosync
 - [ ] **torch/distributed/pipelining/stage.py:1300** - # TODO: We may want to change our semantics so we are allowed to ignore
 - [ ] **torch/distributed/pipelining/stage.py:1337** - # TODO: we don't need to save this, add to dw_runner?
@@ -220,7 +220,7 @@ The distributed-computing source mirror carries an established development maint
 - [ ] **torch/distributed/tensor/_ops/_common_rules.py:93** - # TODO: further merge the sharding properly (i.e. reshard one input to replicate)
 - [ ] **torch/distributed/tensor/_ops/_common_rules.py:160** - # TODO: consider a more advanced heuristic to pick the best sharding
 - [ ] **torch/distributed/tensor/_ops/_conv_ops.py:155** - # TODO: actually the output_mask is not respected here, we should
-- [ ] **torch/distributed/tensor/_ops/_math_ops.py:1014** - # TODO: The diagonal ops can have an improved sharding strategy for
+- [ ] **torch/distributed/tensor/_ops/_math_ops.py:1030** - # TODO: The diagonal ops can have an improved sharding strategy for
 - [ ] **torch/distributed/tensor/_ops/_pointwise_ops.py:113** - # TODO: move kwargs handling upstream if this works
 - [ ] **torch/distributed/tensor/_ops/_pointwise_ops.py:395** - # TODO: positive should be removed once CIA (Copy Is All) optimizes it away.
 - [ ] **torch/distributed/tensor/_ops/_pointwise_ops.py:479** - # TODO(pianpwk): add torch.Tag.pointwise to these ops in native_functions.yaml
