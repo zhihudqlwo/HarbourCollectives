@@ -1,0 +1,280 @@
+# HarbourCollectives
+
+The distributed-computing source mirror carries an established development maintenance checklist.
+
+### 📝 Complete TODO List
+
+- [ ] **torch/distributed/_composable/contract.py:226** - # TODO: verify that installed distributed paradigms are compatible with
+- [ ] **torch/distributed/_composable/fsdp/fully_shard.py:1** - # TODO: For backward compatibility, we are importing the public objects
+- [ ] **torch/distributed/_composable/replicate.py:25** - # TODO(@fegin): this variable is originally created for testing, we
+- [ ] **torch/distributed/_composable/replicate.py:226** - # TODO: This is a temporary work around to enable DDP + TP.
+- [ ] **torch/distributed/_functional_collectives.py:1778** - # TODO(yifu): remove these in functional collective beta release
+- [ ] **torch/distributed/_functional_collectives.py:1832** - # TODO add a type,
+- [ ] **torch/distributed/_functional_collectives.py:1850** - # TODO type is actually c10d ReduceOp. is this ok?
+- [ ] **torch/distributed/_functional_collectives.py:1851** - # TODO add a type
+- [ ] **torch/distributed/_local_tensor/__init__.py:1546** - # TODO: This should either be removed or documented why it's necessary.
+- [ ] **torch/distributed/_local_tensor/__init__.py:1560** - # TODO: This should either be removed or documented why it's necessary.
+- [ ] **torch/distributed/_pycute/int_tuple.py:150** - # TODO: With all these length asserts, may want to create a zip_strict wrapper.
+- [ ] **torch/distributed/_shard/sharded_optim/api.py:82** - # TODO: implement state_dict
+- [ ] **torch/distributed/_shard/sharded_optim/api.py:92** - # TODO: implement load_state_dict
+- [ ] **torch/distributed/_shard/sharded_optim/api.py:99** - # TODO: implement add_param_group
+- [ ] **torch/distributed/_shard/sharded_tensor/_ops/tensor_ops.py:31** - # TODO: set grad with a ShardedTensor that consists of all local grads
+- [ ] **torch/distributed/_shard/sharded_tensor/api.py:456** - # TODO make it as a view of out tensor
+- [ ] **torch/distributed/_shard/sharded_tensor/api.py:528** - # TODO: make this a __torch_function__ op once ShardedTensor becomes a
+- [ ] **torch/distributed/_shard/sharded_tensor/api.py:929** - # TODO: figure out what the API should behave when some rank have no shard
+- [ ] **torch/distributed/_shard/sharding_spec/_internals.py:181** - # TODO: Can we improve this error message to point out the gaps?
+- [ ] **torch/distributed/_shard/sharding_spec/api.py:183** - # TODO: figure out a generic and efficient way to scatter the shards for EnumerableShardingSpec
+- [ ] **torch/distributed/_shard/sharding_spec/chunk_sharding_spec.py:65** - # TODO: support named dimension
+- [ ] **torch/distributed/_shard/sharding_spec/chunk_sharding_spec_ops/embedding.py:288** - # TODO: Make the result a PartialTensor.
+- [ ] **torch/distributed/_shard/sharding_spec/chunk_sharding_spec_ops/embedding_bag.py:408** - # TODO: Make the result a PartialTensor and move the logic below there.
+- [ ] **torch/distributed/_state_dict_utils.py:109** - # TODO: should we use pytree?
+- [ ] **torch/distributed/_state_dict_utils.py:624** - # TODO: currently, we cannot handle strided sharding if the dp dimension is not even. For example,
+- [ ] **torch/distributed/_state_dict_utils.py:732** - # TODO: We should consolidate the code here as some not all modules can depend on
+- [ ] **torch/distributed/_symmetric_memory/__init__.py:2609** - # TODO: other backends' dispatch goes here
+- [ ] **torch/distributed/_symmetric_memory/__init__.py:2629** - # TODO: other backends' dispatch goes here
+- [ ] **torch/distributed/_tensor/__init__.py:15** - # TODO: _shards_wrapper/_utils here mainly for checkpoint BC, remove them
+- [ ] **torch/distributed/_tools/fake_collectives.py:246** - # TODO(@sanketpurandare) - Confirm size computation
+- [ ] **torch/distributed/_tools/fake_collectives.py:251** - # TODO(@sanketpurandare) - Confirm size computation
+- [ ] **torch/distributed/_tools/fake_collectives.py:260** - # TODO(@sanketpurandare) - Confirm size computation
+- [ ] **torch/distributed/_tools/fsdp2_mem_tracker.py:373** - # TODO(@sanketpurandare): This will need to be modified after this PR (https://github.com/pytorch/pytorch/pull/127786)
+- [ ] **torch/distributed/_tools/runtime_estimator.py:171** - # TODO: also check metadata change on inputs
+- [ ] **torch/distributed/_tools/runtime_estimator.py:335** - # TODO: @sanketpurandare: Flatten tensors by desugaring the tensor subclasses
+- [ ] **torch/distributed/_tools/runtime_estimator.py:336** - # TODO: @sanketpurandare: Add logic for incorporating communication time
+- [ ] **torch/distributed/_tools/sac_estimator.py:620** - # TODO: Write a better explanation why this needs to be done
+- [ ] **torch/distributed/algorithms/_checkpoint/checkpoint_wrapper.py:278** - # TODO: Importing inside function to avoid circular import issue between FSDP and
+- [ ] **torch/distributed/algorithms/_optimizer_overlap/optimizer_overlap.py:76** - # TODO: register_fsdp once FSDP supports communication hook.
+- [ ] **torch/distributed/algorithms/ddp_comm_hooks/optimizer_overlap_hooks.py:79** - # not average. TODO: (rohan-varma) the div factor may be different
+- [ ] **torch/distributed/algorithms/ddp_comm_hooks/optimizer_overlap_hooks.py:84** - # TODO (rohan-varma): upcast as needed for DDP mixed precision,
+- [ ] **torch/distributed/algorithms/ddp_comm_hooks/powerSGD_hook.py:601** - # TODO: The above procedure does two matmul+allreduce steps per iteration --
+- [ ] **torch/distributed/algorithms/ddp_comm_hooks/powerSGD_hook.py:827** - # TODO: The above procedure does two matmul+allreduce steps per iteration --
+- [ ] **torch/distributed/checkpoint/_dedup_tensors.py:33** - # TODO add docstring for dedup_tensors
+- [ ] **torch/distributed/checkpoint/_nested_dict.py:26** - # TODO: Update Docstring for nested_dict.py
+- [ ] **torch/distributed/checkpoint/_sharded_tensor_utils.py:19** - # TODO: We need to refactor this code.
+- [ ] **torch/distributed/checkpoint/_traverse.py:28** - # TODO: update docstring for traverse.py
+- [ ] **torch/distributed/checkpoint/_traverse.py:186** - # TODO: add local offset for _local_tensor in print_nested.
+- [ ] **torch/distributed/checkpoint/default_planner.py:70** - # TODO: Update docstrings for default_planner.py
+- [ ] **torch/distributed/checkpoint/filesystem.py:312** - # TODO replace with heapq
+- [ ] **torch/distributed/checkpoint/filesystem.py:394** - # TODO: Using the OverlappingCpuLoader with multiple threads creates significant
+- [ ] **torch/distributed/checkpoint/filesystem.py:880** - # TODO sort by offset and cache the reading
+- [ ] **torch/distributed/checkpoint/format_utils.py:85** - # TODO: read on each host, instead of only the coordinator
+- [ ] **torch/distributed/checkpoint/optimizer.py:50** - # TODO: Update docstrings for optimizer.py
+- [ ] **torch/distributed/checkpoint/optimizer.py:200** - # TODO: The ReadItems will have a displaced MetadataIndex, fix it.
+- [ ] **torch/distributed/checkpoint/optimizer.py:201** - # TODO: we should change _create_sharded_read_items to have more ergonomic API
+- [ ] **torch/distributed/checkpoint/state_dict.py:537** - # TODO: make this faster.
+- [ ] **torch/distributed/checkpoint/state_dict.py:1076** - # TODO: check if value is the same if exists.
+- [ ] **torch/distributed/checkpoint/state_dict.py:1545** - # TODO: correct the state_dict function signature.
+- [ ] **torch/distributed/checkpoint/state_dict.py:1546** - # TODO: this API is not yet fully tested. Make it private
+- [ ] **torch/distributed/checkpoint/state_dict.py:1600** - # TODO: correct the load_state_dict function signature.
+- [ ] **torch/distributed/checkpoint/state_dict.py:1601** - # TODO: this API is not yet fully tested. Make it private
+- [ ] **torch/distributed/checkpoint/state_dict_loader.py:47** - # TODO: test returning `load` here instead.
+- [ ] **torch/distributed/checkpoint/state_dict_saver.py:75** - # TODO: test returning `save` here instead.
+- [ ] **torch/distributed/checkpoint/utils.py:442** - # TODO: integrate with distributed logging flag
+- [ ] **torch/distributed/device_mesh.py:140** - # TODO: to remove it once we move all use cases into new API.
+- [ ] **torch/distributed/device_mesh.py:165** - # TODO: to remove it once we move all use cases into new API.
+- [ ] **torch/distributed/device_mesh.py:353** - # TODO(yeounoh) implement DeviceMesh backend and register XLA backend.
+- [ ] **torch/distributed/device_mesh.py:559** - # TODO: remove this once we have fixed inside c10d level.
+- [ ] **torch/distributed/device_mesh.py:834** - # TODO: compiler + device_mesh slicing.
+- [ ] **torch/distributed/device_mesh.py:1144** - # TODO: Remove the below check and define the expected behavior.
+- [ ] **torch/distributed/device_mesh.py:1155** - # TODO: Eventually we will just directly throw error here because
+- [ ] **torch/distributed/device_mesh.py:1164** - # TODO: to make this use case by other components public API in the future.
+- [ ] **torch/distributed/device_mesh.py:1487** - # TODO: To make backend init more efficient with cute layout representation and support
+- [ ] **torch/distributed/distributed_c10d.py:572** - # TODO refactor into enum/strenum
+- [ ] **torch/distributed/distributed_c10d.py:1571** - # TODO moco benchmark on CPU initializes pgnccl backend today, triggered this assert in CI before it was
+- [ ] **torch/distributed/distributed_c10d.py:1899** - # TODO: remove this once the ecosystem moves away from it.
+- [ ] **torch/distributed/distributed_c10d.py:1940** - # TODO(yifu): remove this function once ranks + tag is not a supported
+- [ ] **torch/distributed/distributed_c10d.py:3137** - # TODO: This defaults to the old behavior for PythonProcessGroups which overwrites the
+- [ ] **torch/distributed/distributed_c10d.py:6708** - # TODO(whc) apparently some existing test case for monitored_barrier passes in a timeout in float format?
+- [ ] **torch/distributed/distributed_c10d.py:7435** - # TODO: Use itertools.batched(get_process_group_ranks(group=group), group_size) instead when Python 3.12 is supported.
+- [ ] **torch/distributed/distributed_c10d.py:7586** - # TODO copy settings and timeout from default PG
+- [ ] **torch/distributed/elastic/agent/server/api.py:93** - # TODO @kiuk - make entrypoint a required field
+- [ ] **torch/distributed/elastic/agent/server/api.py:533** - # TODO: BC - specific to static rdzv and can be simplified further
+- [ ] **torch/distributed/elastic/agent/server/api.py:708** - # TODO after stopping workers, wait at least monitor_interval*2 for
+- [ ] **torch/distributed/elastic/multiprocessing/api.py:481** - # TODO log_line_prefixes can be expanded too
+- [ ] **torch/distributed/elastic/rendezvous/api.py:88** - # TODO swap to collectives comms API
+- [ ] **torch/distributed/elastic/rendezvous/etcd_rendezvous.py:166** - # TODO: look into using weakref here instead.
+- [ ] **torch/distributed/elastic/rendezvous/etcd_rendezvous.py:215** - # TODO: we should probably handle a few additional errors,
+- [ ] **torch/distributed/elastic/rendezvous/etcd_rendezvous.py:273** - # TODO: look into using weakref here instead.
+- [ ] **torch/distributed/elastic/rendezvous/etcd_rendezvous.py:949** - # TODO: implement timeout
+- [ ] **torch/distributed/flight_recorder/components/builder.py:118** - # TODO Bug in FR data format? ranks is '[0, 1,...]'
+- [ ] **torch/distributed/flight_recorder/components/builder.py:293** - # TODO: we need to surface a merged collective info like input/output sizes to users.
+- [ ] **torch/distributed/flight_recorder/components/builder.py:364** - #     TODO should there be a way to mark 'mismatches'?
+- [ ] **torch/distributed/flight_recorder/components/types.py:178** - # TODO: We need to add a schema for the following
+- [ ] **torch/distributed/flight_recorder/components/types.py:589** - # TODO: I think this can validly not match,
+- [ ] **torch/distributed/flight_recorder/components/types.py:598** - # TODO: We need more states for p2p ops.
+- [ ] **torch/distributed/flight_recorder/components/utils.py:160** - # TODO can't verify seq_id bc there might have been valid seq deltas between ranks even within a pg.
+- [ ] **torch/distributed/flight_recorder/components/utils.py:163** - # print("TODO- not sure if its valid for only some ranks in a PG to participate in a coalesced op?")
+- [ ] **torch/distributed/flight_recorder/components/utils.py:296** - # TODO Need to verify no seq_id deltas for P2P ops.
+- [ ] **torch/distributed/flight_recorder/components/utils.py:370** - # TODO: For now, we only check the correctness of individual collective within a coalesced one in
+- [ ] **torch/distributed/flight_recorder/components/utils.py:464** - # TODO: we need to figure out a better way to handle the case mentioned above.
+- [ ] **torch/distributed/fsdp/_common_utils.py:269** - # TODO: Move all the attributes to this class to enable typing for
+- [ ] **torch/distributed/fsdp/_common_utils.py:350** - # TODO: This is a temporary hack for differentiate between code paths.
+- [ ] **torch/distributed/fsdp/_common_utils.py:394** - # TODO: Explicitly replacing the checkpoint wrapper prefix is not ideal as
+- [ ] **torch/distributed/fsdp/_common_utils.py:494** - # TODO: Remove this hack once DMP + FSDP is not supported.
+- [ ] **torch/distributed/fsdp/_common_utils.py:586** - # TODO: Remove this hack once DMP + FSDP is not supported.
+- [ ] **torch/distributed/fsdp/_common_utils.py:662** - # TODO: We need to run this mixed precision ignored module in fp32,
+- [ ] **torch/distributed/fsdp/_common_utils.py:715** - # TODO(voz): Extend a dynamo util to answer the above, unify the codepaths here.
+- [ ] **torch/distributed/fsdp/_exec_order_utils.py:80** - # TODO (awgu): We can broadcast the metadata of rank 0's `all_handles`
+- [ ] **torch/distributed/fsdp/_exec_order_utils.py:214** - # TODO (awgu): Since every module has at most one handle in the
+- [ ] **torch/distributed/fsdp/_exec_order_utils.py:219** - # TODO(voz): Don't graph break on this - dynamo hates the n1 != n2
+- [ ] **torch/distributed/fsdp/_exec_order_utils.py:245** - # TODO(voz): Don't graph break on this - dynamo hates the i1 != i2
+- [ ] **torch/distributed/fsdp/_flat_param.py:103** - # TODO: Define this for now to avoid circular imports. See if we can remove.
+- [ ] **torch/distributed/fsdp/_flat_param.py:1642** - # TODO (awgu): Gradient accumulation outside `no_sync()`
+- [ ] **torch/distributed/fsdp/_flat_param.py:1683** - # TODO (rohan-varma): test for full precision with keep_low_precision_grads
+- [ ] **torch/distributed/fsdp/_flat_param.py:1692** - # TODO (awgu): We should replace these conditional checks to encode
+- [ ] **torch/distributed/fsdp/_flat_param.py:1879** - # TODO: Change `_unpadded_unsharded_size` if we change the
+- [ ] **torch/distributed/fsdp/_flat_param.py:2398** - # TODO: If we want to handle shared parameters, we need to re-generate
+- [ ] **torch/distributed/fsdp/_fully_shard/_fsdp_collectives.py:89** - # TODO: Remove this, maybe by warning user to perform eager dist init.
+- [ ] **torch/distributed/fsdp/_fully_shard/_fsdp_param.py:252** - # TODO: Remove this padding logic once DTensor pads the local tensor:
+- [ ] **torch/distributed/fsdp/_fully_shard/_fsdp_param.py:302** - # TODO: Replace the sharded DTensor parameter construction logic with
+- [ ] **torch/distributed/fsdp/_fully_shard/_fsdp_param.py:304** - # TODO: Simplify the following sharded parameter padding logic after
+- [ ] **torch/distributed/fsdp/_fully_shard/_fsdp_param.py:1057** - # TODO: Prefer this DTensor to be read-only and generalize the
+- [ ] **torch/distributed/fsdp/_fully_shard/_fsdp_param.py:1334** - # TODO: need to support tensor subclass
+- [ ] **torch/distributed/fsdp/_fully_shard/_fsdp_param_group.py:859** - # TODO(#181218): open questions on scope.
+- [ ] **torch/distributed/fsdp/_fully_shard/_fsdp_state.py:621** - # TODO: To support modifying the sharded parameters between forward and
+- [ ] **torch/distributed/fsdp/_init_utils.py:68** - # TODO (awgu): Refactor this later
+- [ ] **torch/distributed/fsdp/_init_utils.py:312** - # TODO: FSDP's contract for buffers is not well-defined. They are
+- [ ] **torch/distributed/fsdp/_init_utils.py:516** - # TODO: we need to add additional check once we support FSDP + PiPPy.
+- [ ] **torch/distributed/fsdp/_init_utils.py:700** - # TODO: We may relax this by taking the FSDP instance's wrapped
+- [ ] **torch/distributed/fsdp/_init_utils.py:887** - # TODO: We need to establish a contract for FSDP and buffers. For now, we
+- [ ] **torch/distributed/fsdp/_init_utils.py:1109** - # TODO: See how to deprecate!
+- [ ] **torch/distributed/fsdp/_optim_utils.py:1456** - # TODO: This solution is not general and only apply to PTD TP solution.
+- [ ] **torch/distributed/fsdp/_optim_utils.py:1762** - # TODO: it is unclear if we need to do the same check with
+- [ ] **torch/distributed/fsdp/_runtime_utils.py:323** - # But maybe we need to? TODO(voz): Look into this
+- [ ] **torch/distributed/fsdp/_runtime_utils.py:597** - # TODO: Do not use the side stream for tensor copies for now; investigate
+- [ ] **torch/distributed/fsdp/_runtime_utils.py:801** - # TODO: Post-backward prefetching does not support the multiple handles
+- [ ] **torch/distributed/fsdp/_runtime_utils.py:978** - # TODO: Investigate why `NO_SHARD` breaks correctness when using
+- [ ] **torch/distributed/fsdp/_runtime_utils.py:980** - # TODO (rohan-varma): When CPU offload and optimizer overlap,
+- [ ] **torch/distributed/fsdp/_runtime_utils.py:1011** - # TODO (rohan-varma): For CPU offload, this unfortunately
+- [ ] **torch/distributed/fsdp/_runtime_utils.py:1101** - # TODO (rohan-varma): this also waits for the overlapped optimizer step to finish
+- [ ] **torch/distributed/fsdp/_runtime_utils.py:1144** - # TODO: This already-resharded check is brittle:
+- [ ] **torch/distributed/fsdp/_state_dict_utils.py:142** - # TODO: need to check if this is always correct for composable FSDP.
+- [ ] **torch/distributed/fsdp/_state_dict_utils.py:438** - # TODO: Add DTensor state_dict support for LOCAL_STATE_DICT.
+- [ ] **torch/distributed/fsdp/_state_dict_utils.py:500** - # TODO: Add DTensor state_dict support for LOCAL_STATE_DICT.
+- [ ] **torch/distributed/fsdp/_state_dict_utils.py:620** - # TODO: Improve unittesting for state_dict finetuning
+- [ ] **torch/distributed/fsdp/_traversal_utils.py:38** - # TODO: Add any other composable APIs that are mutually exclusive.
+- [ ] **torch/distributed/fsdp/_traversal_utils.py:45** - # TODO (awgu): We may be able to remove this function if we retired the
+- [ ] **torch/distributed/fsdp/_unshard_param_utils.py:85** - # TODO: figure out the case for the composable APIs.
+- [ ] **torch/distributed/fsdp/_unshard_param_utils.py:100** - # TODO: figure out the case for the composable APIs.
+- [ ] **torch/distributed/fsdp/_unshard_param_utils.py:146** - # TODO: Rank 0 can broadcast the `FlatParameter` to allow all ranks to
+- [ ] **torch/distributed/fsdp/_wrap_utils.py:44** - # TODO: We may relax this no-nested-wrapping constraint to support manual
+- [ ] **torch/distributed/nn/api/remote_module.py:254** - # TODO: We need to change this to rpc.remote, and make it async (see the else branch below).
+- [ ] **torch/distributed/nn/jit/templates/remote_module_template.py:61** - # TODO: Merge these two templates together in the future once TorchScript syntax is improved.
+- [ ] **torch/distributed/optim/apply_optimizer_in_backward.py:74** - # TODO: Remove these attributes once we have a better way of accessing
+- [ ] **torch/distributed/optim/functional_adagrad.py:63** - # TODO: no union or any types in TorchScript, make step a scalar tensor instead
+- [ ] **torch/distributed/optim/functional_sgd.py:61** - # TODO: Once step_param interface is robust, refactor step to call
+- [ ] **torch/distributed/optim/named_optimizer.py:315** - # TODO(chienchin): This API should be FSDP agnostic and should support
+- [ ] **torch/distributed/optim/named_optimizer.py:324** - # TODO(chienchin): This API should be FSDP agnostic and should support
+- [ ] **torch/distributed/optim/optimizer.py:37** - # TODO (wanchaol): remove/merge this with _FunctionalLocalOptimizer once
+- [ ] **torch/distributed/optim/optimizer.py:84** - # TODO: improve error propagation
+- [ ] **torch/distributed/optim/zero_redundancy_optimizer.py:1580** - # TODO: Manually add `self.param_groups` if using a functional
+- [ ] **torch/distributed/pipelining/_IR.py:34** - # TODO:
+- [ ] **torch/distributed/pipelining/_IR.py:131** - # Collect metadata about tuple output values. TODO: move this to split_module or FX IR
+- [ ] **torch/distributed/pipelining/_IR.py:569** - # TODO: is there a way not to hard wire init?
+- [ ] **torch/distributed/pipelining/_IR.py:700** - # TODO: investigate
+- [ ] **torch/distributed/pipelining/_IR.py:769** - # TODO: what does split do with module invocations? does it move the modules
+- [ ] **torch/distributed/pipelining/_IR.py:793** - # TODO: backport this into split_module
+- [ ] **torch/distributed/pipelining/_IR.py:877** - # TODO: handle non-persistent buffer
+- [ ] **torch/distributed/pipelining/_IR.py:1109** - # TODO? Not sure yet.
+- [ ] **torch/distributed/pipelining/_IR.py:1224** - # TODO: make this implementation out-of-place?
+- [ ] **torch/distributed/pipelining/_backward.py:510** - # TODO: handling requires_grad=False dynamically. Can we analyze this during initial
+- [ ] **torch/distributed/pipelining/_schedule_visualizer.py:117** - # TODO: later we can change this at the schedule creation level to not use Nones
+- [ ] **torch/distributed/pipelining/microbatch.py:432** - # TODO: _debug_mask_minibatches
+- [ ] **torch/distributed/pipelining/schedules.py:67** - # TODO(whc) rename to _ActType?
+- [ ] **torch/distributed/pipelining/schedules.py:242** - # TODO make a real 'None action' that prints as empty string and make mypy happy
+- [ ] **torch/distributed/pipelining/schedules.py:2394** - # TODO we can avoid send/recv if the 2 stages are on the same rank.
+- [ ] **torch/distributed/pipelining/schedules.py:2977** - # TODO: assumption that stages only communicate from distances of +1/-1 (no skip connections)
+- [ ] **torch/distributed/pipelining/schedules.py:3082** - # TODO: We are assuming that stage will always receive from stage-1
+- [ ] **torch/distributed/pipelining/schedules.py:3117** - # TODO: We are assuming that stage will always receive from stage+1
+- [ ] **torch/distributed/pipelining/schedules.py:3301** - # TODO what level of validation should we offer for compute+comms schedule?
+- [ ] **torch/distributed/pipelining/schedules.py:3532** - # TODO(whc) it's not actually safe to use _batch_p2p here in the uncommon case the model has skip-connections,
+- [ ] **torch/distributed/pipelining/schedules.py:3985** - # TODO: we don't need to always append, after all 1f1b are finished we can stop appending None
+- [ ] **torch/distributed/pipelining/schedules.py:4235** - # TODO: we don't support input/weight backward split with torch.compile
+- [ ] **torch/distributed/pipelining/schedules.py:4456** - # TODO: we don't support input/weight backward split with torch.compile
+- [ ] **torch/distributed/pipelining/schedules.py:4666** - # TODO: we don't support input/weight backward split with torch.compile
+- [ ] **torch/distributed/pipelining/stage.py:453** - # TODO: this is needed for backward_maybe_with_nosync
+- [ ] **torch/distributed/pipelining/stage.py:1300** - # TODO: We may want to change our semantics so we are allowed to ignore
+- [ ] **torch/distributed/pipelining/stage.py:1337** - # TODO: we don't need to save this, add to dw_runner?
+- [ ] **torch/distributed/pipelining/stage.py:1402** - # TODO: figure out a better way to do this:
+- [ ] **torch/distributed/rpc/backend_registry.py:306** - # TODO: make async?
+- [ ] **torch/distributed/rpc/backend_registry.py:384** - # TODO: add try-except and destroy _agent in all processes if any fails.
+- [ ] **torch/distributed/tensor/_api.py:261** - # TODO: support uneven sharding when global shape/stride not passed, by
+- [ ] **torch/distributed/tensor/_api.py:265** - # TODO: See if we need to make this run_check logic
+- [ ] **torch/distributed/tensor/_api.py:347** - # TODO: return the redistributed local tensor directly without
+- [ ] **torch/distributed/tensor/_api.py:351** - # TODO: backward is also differentiable now, add a test
+- [ ] **torch/distributed/tensor/_api.py:421** - # TODO: consider all_gather the local tensors for better debugging
+- [ ] **torch/distributed/tensor/_api.py:1050** - # TODO(xilun): address sharding order
+- [ ] **torch/distributed/tensor/_collective_utils.py:127** - # TODO: enable async op for shard_dim_alltoall
+- [ ] **torch/distributed/tensor/_collective_utils.py:166** - # TODO: Ideally we should use the meta tensor way
+- [ ] **torch/distributed/tensor/_collective_utils.py:227** - # TODO: Ideally we should use the meta tensor way
+- [ ] **torch/distributed/tensor/_collective_utils.py:358** - # TODO: see if we need to tweak this or offer a way for user
+- [ ] **torch/distributed/tensor/_collective_utils.py:442** - # TODO: add alltoall_cost
+- [ ] **torch/distributed/tensor/_collective_utils.py:541** - # TODO: see if we want to support this once there's cross mesh communication
+- [ ] **torch/distributed/tensor/_collective_utils.py:547** - # TODO(zpcore): test placements with _StridedShard if we replace shard_order
+- [ ] **torch/distributed/tensor/_collective_utils.py:574** - # TODO(zpcore): Support _StridedShard redistribution. Remove the temporary
+- [ ] **torch/distributed/tensor/_collective_utils.py:582** - # TODO(zpcore): test placements with _StridedShard if we replace shard_order
+- [ ] **torch/distributed/tensor/_decompositions.py:225** - # TODO(pianpwk): RuntimeError is raised when redistribution is detected; switch to a custom error type
+- [ ] **torch/distributed/tensor/_dtensor_spec.py:243** - # TODO(zpcore): split_factor from `view` and `shard order`
+- [ ] **torch/distributed/tensor/_dtensor_spec.py:419** - # TODO: the TensorMetadata arises from
+- [ ] **torch/distributed/tensor/_op_schema.py:269** - # TODO upstream this assert to DTensorSpec itself and fill any missing TensorMetas
+- [ ] **torch/distributed/tensor/_op_schema.py:411** - # TODO: see if we should merge this with args_spec
+- [ ] **torch/distributed/tensor/_ops/_common_rules.py:93** - # TODO: further merge the sharding properly (i.e. reshard one input to replicate)
+- [ ] **torch/distributed/tensor/_ops/_common_rules.py:160** - # TODO: consider a more advanced heuristic to pick the best sharding
+- [ ] **torch/distributed/tensor/_ops/_conv_ops.py:155** - # TODO: actually the output_mask is not respected here, we should
+- [ ] **torch/distributed/tensor/_ops/_math_ops.py:1014** - # TODO: The diagonal ops can have an improved sharding strategy for
+- [ ] **torch/distributed/tensor/_ops/_pointwise_ops.py:113** - # TODO: move kwargs handling upstream if this works
+- [ ] **torch/distributed/tensor/_ops/_pointwise_ops.py:395** - # TODO: positive should be removed once CIA (Copy Is All) optimizes it away.
+- [ ] **torch/distributed/tensor/_ops/_pointwise_ops.py:479** - # TODO(pianpwk): add torch.Tag.pointwise to these ops in native_functions.yaml
+- [ ] **torch/distributed/tensor/_ops/_pointwise_ops.py:589** - # TODO: handle other inductor prims ops that may need DTensor sharding
+- [ ] **torch/distributed/tensor/_ops/_view_ops.py:956** - # TODO: non-strict (reshape) should allow can_shard_dim = True
+- [ ] **torch/distributed/tensor/_ops/_view_ops.py:1405** - # TODO: optimize this. we shouldn't simply blindly replicate
+- [ ] **torch/distributed/tensor/_ops/single_dim_strategy.py:821** - # TODO maybe this could be helped by adding a new 'tag' to the OpOverload?
+- [ ] **torch/distributed/tensor/_ops/single_dim_strategy.py:1083** - # TODO: is_shard() misses _StridedShard, use spec.num_shards instead.
+- [ ] **torch/distributed/tensor/_ops/strategy_validation.py:627** - # TODO: This is too broad. Consider: (1) explicit checks for shard dim
+- [ ] **torch/distributed/tensor/_ops/utils.py:120** - # TODO(zpcore): Confirm if view op can be handled properly or not. Prevent
+- [ ] **torch/distributed/tensor/_ops/utils.py:575** - # TODO: refactor fused_ops handling so that there are no longer
+- [ ] **torch/distributed/tensor/_random.py:47** - # TODO: Logs way too much
+- [ ] **torch/distributed/tensor/_random.py:84** - # TODO: deprecate this API, but also need to ensure we disable broadcast for PP case, and that's currently
+- [ ] **torch/distributed/tensor/_redistribute.py:945** - # (TODO) Case 8. _StridedShard(a) -> Shard(b), use all-to-all (a2a), applies to:
+- [ ] **torch/distributed/tensor/_redistribute.py:951** - # (TODO) Case 10. Shard(a) -> _StridedShard(b), use all-to-all (a2a), applies to:
+- [ ] **torch/distributed/tensor/_redistribute.py:954** - # (TODO) Case 11. Partial() -> _StridedShard(), use reduce-scatter, applies to:
+- [ ] **torch/distributed/tensor/_redistribute.py:964** - # (TODO) Verify device order impact in Partial placement. We may need to handle
+- [ ] **torch/distributed/tensor/_redistribute.py:1011** - # TODO(zpcore): support discovering submesh to prevent padding when
+- [ ] **torch/distributed/tensor/_redistribute.py:1123** - # TODO(zpcore): handle case 8: _StridedShard() -> Shard() on the same dim
+- [ ] **torch/distributed/tensor/_redistribute.py:1150** - # TODO(zpcore): handle case 10: Shard() -> _StridedShard()
+- [ ] **torch/distributed/tensor/_redistribute.py:1153** - # TODO(zpcore): handle case 11: Partial() -> _StridedShard()
+- [ ] **torch/distributed/tensor/_redistribute.py:1213** - # TODO(zpcore): if the dst_state contains special placement like
+- [ ] **torch/distributed/tensor/_redistribute.py:1320** - # TODO(zpcore): Temporary workaround for backward compatibility where
+- [ ] **torch/distributed/tensor/_redistribute.py:1461** - # TODO: extend nested sharding detection to _StridedShard
+- [ ] **torch/distributed/tensor/_redistribute.py:1552** - # TODO(zpcore): Temporary workaround for the case where _StridedShard
+- [ ] **torch/distributed/tensor/_redistribute.py:1605** - # TODO: alltoall/permute reshuffling to change device_mesh if they are not the same
+- [ ] **torch/distributed/tensor/_sharding_prop.py:259** - # TODO(laithsakka): unify with optimization_hint API
+- [ ] **torch/distributed/tensor/_sharding_prop.py:316** - # TODO: Currently this only applies to OpStrategy selection. Requires extra
+- [ ] **torch/distributed/tensor/_sharding_prop.py:744** - # scalar. TODO: figure out a better way to handle this
+- [ ] **torch/distributed/tensor/_tp_conv.py:18** - # TODO: whether there requires data exchange is currently determined by padding
+- [ ] **torch/distributed/tensor/examples/flex_attention_cp.py:134** - # TODO: this doesn't address the return_lse=True case
+- [ ] **torch/distributed/tensor/examples/torchrec_sharding_example.py:93** - # TODO: we shall continually extend this function to support more ops if needed
+- [ ] **torch/distributed/tensor/experimental/_attention.py:26** - # TODO(fegin): add deprecation message once the final interfaces are concluded.
+- [ ] **torch/distributed/tensor/experimental/_context_parallel/_attention.py:416** - # TODO(fegin): figure out why this is a requirement since SDPA does not have
+- [ ] **torch/distributed/tensor/experimental/_context_parallel/_attention.py:682** - # TODO: remove this hardcoding
+- [ ] **torch/distributed/tensor/experimental/_context_parallel/_attention.py:717** - # TODO: remove this hardcoding
+- [ ] **torch/distributed/tensor/experimental/_context_parallel/_attention.py:755** - # TODO: remove this hardcoding
+- [ ] **torch/distributed/tensor/experimental/_context_parallel/_attention.py:793** - # TODO: remove this hardcoding
+- [ ] **torch/distributed/tensor/experimental/_context_parallel/_attention.py:836** - # TODO: remove this hardcoding
+- [ ] **torch/distributed/tensor/experimental/_context_parallel/_attention.py:880** - # TODO: remove this hardcoding
+- [ ] **torch/distributed/tensor/experimental/_context_parallel/_attention.py:917** - # TODO: remove the context parallel strategy from the default propagation
+- [ ] **torch/distributed/tensor/experimental/_context_parallel/_attention.py:1029** - # TODO: unregister_cp_sharding_rules(clear_the_cache=True) will cause
+- [ ] **torch/distributed/tensor/experimental/_context_parallel/_attention.py:1117** - # TODO: we should explicitly ask users to unsqueeze the batch dim.
+- [ ] **torch/distributed/tensor/experimental/_context_parallel/_attention.py:1475** - # TODO: these global variables are going to bite us someday.
+- [ ] **torch/distributed/tensor/experimental/_func_map.py:394** - # TODO: the current code doesn't consider the uneven sharding case
+- [ ] **torch/distributed/tensor/experimental/_register_sharding.py:96** - # TODO: handle out variant ops
+- [ ] **torch/distributed/tensor/parallel/ddp.py:43** - # TODO: To add perf optimizations to this iterations
+- [ ] **torch/distributed/tensor/parallel/ddp.py:103** - # TODO: To add test cases and ensure that it works for nested modules
+- [ ] **torch/distributed/tensor/parallel/fsdp.py:359** - # TODO: this is a short term fix and we should make the get_unflat_views
+- [ ] **torch/distributed/tensor/parallel/style.py:102** - # TODO: figure out dynamo support for instance method and switch this to instance method
+- [ ] **torch/distributed/tensor/parallel/style.py:531** - # TODO: re-enable the check once we fix the compile path
+- [ ] **torch/distributed/tensor/parallel/style.py:682** - # TODO: re-enable the check once we fix the compile path
+- [ ] **torch/distributed/tensor/placement_types.py:311** - # TODO(pianpwk): remove the unbacked symbols check and fix AsyncTP pattern matching
+
+## License
+
+The source licenses are retained at the repository root.
